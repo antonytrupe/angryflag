@@ -3,8 +3,24 @@ var boxTokens = [{
         'type': 'B',
         'boxX': 0,
         'boxY': 0
+    },{
+        'color': 'red',
+        'type': 'B',
+        'boxX': 1,
+        'boxY': 0
     }
 ];
+
+function boxClick(event){
+	//event.clientX
+	//event.clientY
+}
+
+function boardClick(event){
+	//event.clientX
+	//event.clientY
+
+}
 
 function draw() {
 
@@ -46,6 +62,8 @@ function draw() {
 
     function drawBoxTokens(box, tokens) {
         tokens.forEach(token => {
+			box.fillStyle = token.color;
+
             box.fillText(token.type, token.boxX * 60 + 30, token.boxY * 60 + 30);
         });
     }
