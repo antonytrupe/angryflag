@@ -1,4 +1,3 @@
-
 var boxTokens = [{
         'color': 'red',
         'type': 'B',
