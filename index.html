@@ -1,19 +1,20 @@
+<!DOCTYPE html>
 <html>
   <head>
-  <script src="angryflag.js"></script>
+	<script src="jquery-3.6.0.min.js"></script>
+	<script src="angryflag.js"></script>
+	<script>
+		$(document).ready(function(){init();draw();});
+	</script>
     <style type="text/css">
-     canvas { border: 1px solid black; }
+		canvas { border: 1px solid black; }
     </style>
   </head>
   <div>
   <a href="https://github.com/antonytrupe/angryflag">source code</a>
   <a href="https://antonytrupe.github.io/angryflag/">site</a>
   </div>
-  <canvas id="board" width="600" height="600" onclick="boardClick(this)"></canvas>
-  <canvas id="box" width="420" height="720" onclick="boxClick(this)"></canvas>
-  <script>
-  window.addEventListener('load', function() {
-    draw();
-})
-  </script>
+  <canvas id="board" width="600" height="600"></canvas>
+  <canvas id="box" width="420" height="720"></canvas>
+  
 </html>
