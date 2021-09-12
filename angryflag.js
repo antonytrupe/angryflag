@@ -1,4 +1,44 @@
 var SIZE = 60;
+
+var TOKENTYPES = {
+    'B': {
+        'movement': 0
+    },
+    'F': {
+        'movement': 0
+    },
+    '2': {
+        'movement': 9
+    },
+    '3': {
+        'movement': 1
+    },
+    '4': {
+        'movement': 1
+    },
+    '5': {
+        'movement': 1
+    },
+    '6': {
+        'movement': 1
+    },
+    '7': {
+        'movement': 1
+    },
+    '8': {
+        'movement': 1
+    },
+    '9': {
+        'movement': 1
+    },
+    '10': {
+        'movement': 1
+    },
+    'S': {
+        'movement': 1
+    },
+};
+
 var boxTokens = {
     '0|0': {
         'color': 'red',
@@ -28,7 +68,6 @@ var boxTokens = {
         'color': 'red',
         'type': '2'
     },
-
     '0|1': {
         'color': 'red',
         'type': '2'
@@ -85,7 +124,6 @@ var boxTokens = {
         'color': 'red',
         'type': '4'
     },
-
     '0|3': {
         'color': 'red',
         'type': '4'
@@ -164,135 +202,135 @@ var boxTokens = {
     },
     '0|6': {
         'color': 'blue',
-        'type': 'B'
+        'type': '8'
     },
     '1|6': {
         'color': 'blue',
-        'type': 'B'
+        'type': '9'
     },
     '2|6': {
         'color': 'blue',
-        'type': 'B'
+        'type': '10'
     },
     '3|6': {
         'color': 'blue',
-        'type': 'B'
+        'type': 'S'
     },
     '4|6': {
         'color': 'blue',
-        'type': 'B'
-    },    
+        'type': 'F'
+    },
     '0|7': {
         'color': 'blue',
-        'type': 'B'
+        'type': '6'
     },
     '1|7': {
         'color': 'blue',
-        'type': 'B'
+        'type': '6'
     },
     '2|7': {
         'color': 'blue',
-        'type': 'B'
+        'type': '6'
     },
     '3|7': {
         'color': 'blue',
-        'type': 'B'
+        'type': '7'
     },
     '4|7': {
         'color': 'blue',
-        'type': 'B'
+        'type': '7'
     },
     '5|7': {
         'color': 'blue',
-        'type': 'B'
+        'type': '7'
     },
     '6|7': {
         'color': 'blue',
-        'type': 'B'
+        'type': '8'
     },
     '0|8': {
         'color': 'blue',
-        'type': 'B'
+        'type': '4'
     },
     '1|8': {
         'color': 'blue',
-        'type': 'B'
+        'type': '4'
     },
     '2|8': {
         'color': 'blue',
-        'type': 'B'
+        'type': '5'
     },
     '3|8': {
         'color': 'blue',
-        'type': 'B'
+        'type': '5'
     },
     '4|8': {
         'color': 'blue',
-        'type': 'B'
+        'type': '5'
     },
     '5|8': {
         'color': 'blue',
-        'type': 'B'
+        'type': '5'
     },
     '6|8': {
         'color': 'blue',
-        'type': 'B'
+        'type': '6'
     },
     '0|9': {
         'color': 'blue',
-        'type': 'B'
+        'type': '3'
     },
     '1|9': {
         'color': 'blue',
-        'type': 'B'
+        'type': '3'
     },
     '2|9': {
         'color': 'blue',
-        'type': 'B'
+        'type': '3'
     },
     '3|9': {
         'color': 'blue',
-        'type': 'B'
+        'type': '3'
     },
     '4|9': {
         'color': 'blue',
-        'type': 'B'
+        'type': '3'
     },
     '5|9': {
         'color': 'blue',
-        'type': 'B'
+        'type': '4'
     },
     '6|9': {
         'color': 'blue',
-        'type': 'B'
+        'type': '4'
     },
     '0|10': {
         'color': 'blue',
-        'type': 'B'
+        'type': '2'
     },
     '1|10': {
         'color': 'blue',
-        'type': 'B'
+        'type': '2'
     },
     '2|10': {
         'color': 'blue',
-        'type': 'B'
+        'type': '2'
     },
     '3|10': {
         'color': 'blue',
-        'type': 'B'
+        'type': '2'
     },
     '4|10': {
         'color': 'blue',
-        'type': 'B'
+        'type': '2'
     },
     '5|10': {
         'color': 'blue',
-        'type': 'B'
+        'type': '2'
     },
     '6|10': {
         'color': 'blue',
-        'type': 'B'
+        'type': '2'
     },
     '0|11': {
         'color': 'blue',
@@ -320,7 +358,7 @@ var boxTokens = {
     },
     '6|11': {
         'color': 'blue',
-        'type': 'B'
+        'type': '2'
     }
 };
 var boardTokens = {};
@@ -372,14 +410,26 @@ function moveFromBoxToBoard(source, destination) {
 
 function moveFromBoardToBoard(source, destination) {
 
-    var index = destination.x + '|' + destination.y;
-    var destinationIsEmpty = !boardTokens[index];
+    var destinationIndex = destination.x + '|' + destination.y;
+    var destinationIsEmpty = !boardTokens[destinationIndex];
+    var sourceIndex = sourceSquare.x + '|' + sourceSquare.y;
     if (destinationIsEmpty) {
         //move to new spot on board
-        boardTokens[index] = boardTokens[sourceSquare.x + '|' + sourceSquare.y];
+        boardTokens[destinationIndex] = boardTokens[sourceSquare.x + '|' + sourceSquare.y];
 
         //delete from old spot on board
-        delete boardTokens[sourceSquare.x + '|' + sourceSquare.y];
+        delete boardTokens[sourceIndex];
+        //clear the global variable
+        sourceSquare = {
+            'region': '',
+            'x': '',
+            'y': ''
+        };
+    } else {
+        //swap pieces
+        var destinationToken = boardTokens[destinationIndex];
+        boardTokens[destinationIndex] = boardTokens[sourceIndex];
+        boardTokens[sourceIndex] = destinationToken;
         //clear the global variable
         sourceSquare = {
             'region': '',
@@ -400,11 +450,11 @@ function boardClick(event) {
     var index = destination.x + '|' + destination.y;
 
     //check of moving from box
-    if (sourceSquare.region == 'box') {
+    if (sourceSquare.region == 'box' && gameStatus == 'SETUP') {
         moveFromBoxToBoard(sourceSquare, destination);
     }
     //if moving from board to board
-    else if (sourceSquare.region == 'board') {
+    else if (sourceSquare.region == 'board' && gameStatus == 'SETUP') {
         moveFromBoardToBoard(sourceSquare, destination);
     }
     // this is first click
@@ -415,6 +465,11 @@ function boardClick(event) {
     draw();
 }
 
+function getIndex(square) {
+    var index = square.x + '|' + square.y;
+    return index;
+}
+
 function init() {
     //add click handlers
     var boardCanvas = document.getElementById('board');
@@ -422,8 +477,17 @@ function init() {
 
     var boxCanvas = document.getElementById('box');
     $(boxCanvas).click(boxClick);
+
+    var startGameButton = document.getElementById('startGameButton');
+    $(startGameButton).click(startGame);
 }
 
+var gameStatus = 'SETUP';
+
+function startGame() {
+    gameStatus = 'RUNNING';
+}
+var LINEWIDTH = 6;
 function draw() {
     //console.log('draw');
 
@@ -481,6 +545,27 @@ function draw() {
     drawTokens(box, boxTokens);
     drawTokens(board, boardTokens);
 
+    //highlight valid moves for selected token
+    (function drawMoves(moves) {
+        //console.log(moves);
+        board.save();
+
+        board.strokeStyle = "blue";
+        board.lineWidth = LINEWIDTH;
+        board.beginPath();
+
+        moves.forEach(square => {
+            //console.log(square);
+            board.rect(square.x * SIZE + LINEWIDTH / 2,
+                square.y * SIZE + LINEWIDTH / 2,
+                SIZE - LINEWIDTH, SIZE - LINEWIDTH);
+        });
+
+        board.stroke();
+        board.restore();
+
+    })(getMoves(sourceSquare));
+
     (function drawSelection() {
         //console.log(sourceSquare);
         var ctx;
@@ -493,14 +578,142 @@ function draw() {
             ctx.save();
             ctx.beginPath();
             ctx.strokeStyle = "yellow";
-            ctx.lineWidth = "6";
+            ctx.lineWidth = LINEWIDTH;
 
-            ctx.rect(sourceSquare.x * SIZE, sourceSquare.y * SIZE,
-                SIZE, SIZE);
+            ctx.rect(sourceSquare.x * SIZE + LINEWIDTH / 2, sourceSquare.y * SIZE + LINEWIDTH / 2,
+                SIZE - LINEWIDTH, SIZE - LINEWIDTH);
             ctx.stroke();
             ctx.restore();
 
         }
     })();
-    //drawSelection();
+
+}
+
+function getMoves(sourceSquare) {
+    var moves = [];
+    if (sourceSquare.region != 'board') {
+        return [];
+    }
+    //console.log(sourceSquare);
+    index = getIndex(sourceSquare);
+    //console.log(index);
+    var token = boardTokens[index];
+    //console.log(token);
+    var type = TOKENTYPES[token.type];
+    //console.log(type);
+    //get up movememnts
+    for (var i = 1; i <= type.movement && sourceSquare.y - i >= 0 &&
+        //check if board is empty
+        (boardTokens[getIndex({
+                    'x': sourceSquare.x,
+                    'y': sourceSquare.y - i
+                })] == undefined ||
+            //or is enemy token
+            boardTokens[getIndex({
+                    'x': sourceSquare.x,
+                    'y': sourceSquare.y - i
+                })].color != token.color); i++) {
+        moves.push({
+            'x': sourceSquare.x,
+            'y': sourceSquare.y - i
+        });
+        //check if we hit an enemy pieces
+        if (boardTokens[getIndex({
+                    'x': sourceSquare.x,
+                    'y': sourceSquare.y - i
+                })] != undefined
+             && boardTokens[getIndex({
+                    'x': sourceSquare.x,
+                    'y': sourceSquare.y - i
+                })].color != token.color) {
+            break;
+        }
+    }
+    //get down
+    for (var i = 1; i <= type.movement && sourceSquare.y + i <= 9 &&
+        //check if board is empty
+        (boardTokens[getIndex({
+                    'x': sourceSquare.x,
+                    'y': sourceSquare.y + i
+                })] == undefined ||
+            //or is enemy token
+            boardTokens[getIndex({
+                    'x': sourceSquare.x,
+                    'y': sourceSquare.y + i
+                })].color != token.color); i++) {
+        moves.push({
+            'x': sourceSquare.x,
+            'y': sourceSquare.y + i
+        });
+        //check if we hit an enemy pieces
+        if (boardTokens[getIndex({
+                    'x': sourceSquare.x,
+                    'y': sourceSquare.y + i
+                })] != undefined
+             && boardTokens[getIndex({
+                    'x': sourceSquare.x,
+                    'y': sourceSquare.y + i
+                })].color != token.color) {
+            break;
+        }
+    }
+    //get left
+    for (var i = 1; i <= type.movement && sourceSquare.x - i >= 0
+         &&
+        //check if board is empty
+        (boardTokens[getIndex({
+                    'x': sourceSquare.x - i,
+                    'y': sourceSquare.y
+                })] == undefined ||
+            //or is enemy token
+            boardTokens[getIndex({
+                    'x': sourceSquare.x - i,
+                    'y': sourceSquare.y
+                })].color != token.color); i++) {
+        moves.push({
+            'x': sourceSquare.x - i,
+            'y': sourceSquare.y
+        }); //check if we hit an enemy pieces
+        if (boardTokens[getIndex({
+                    'x': sourceSquare.x - i,
+                    'y': sourceSquare.y
+                })] != undefined
+             && boardTokens[getIndex({
+                    'x': sourceSquare.x - i,
+                    'y': sourceSquare.y
+                })].color != token.color) {
+            break;
+        }
+    }
+    //get right
+    for (var i = 1; i <= type.movement && sourceSquare.x + i <= 9
+         &&
+        //check if board is empty
+        (boardTokens[getIndex({
+                    'x': sourceSquare.x + i,
+                    'y': sourceSquare.y
+                })] == undefined ||
+            //or is enemy token
+            boardTokens[getIndex({
+                    'x': sourceSquare.x + i,
+                    'y': sourceSquare.y
+                })].color != token.color); i++) {
+        moves.push({
+            'x': sourceSquare.x + i,
+            'y': sourceSquare.y
+        });
+        //check if we hit an enemy pieces
+        if (boardTokens[getIndex({
+                    'x': sourceSquare.x + i,
+                    'y': sourceSquare.y
+                })] != undefined
+             && boardTokens[getIndex({
+                    'x': sourceSquare.x + i,
+                    'y': sourceSquare.y
+                })].color != token.color) {
+            break;
+        }
+    }
+    return moves;
 }
