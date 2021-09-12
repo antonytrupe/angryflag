@@ -7,8 +7,321 @@ var boxTokens = {
     '1|0': {
         'color': 'red',
         'type': 'B'
-    }
+    },
+    '2|0': {
+        'color': 'red',
+        'type': 'B'
+    },
+    '3|0': {
+        'color': 'red',
+        'type': 'B'
+    },
+    '4|0': {
+        'color': 'red',
+        'type': 'B'
+    },
+    '5|0': {
+        'color': 'red',
+        'type': 'B'
+    },
+    '6|0': {
+        'color': 'red',
+        'type': '2'
+    },
 
+    '0|1': {
+        'color': 'red',
+        'type': '2'
+    },
+    '1|1': {
+        'color': 'red',
+        'type': '2'
+    },
+    '2|1': {
+        'color': 'red',
+        'type': '2'
+    },
+    '3|1': {
+        'color': 'red',
+        'type': '2'
+    },
+    '4|1': {
+        'color': 'red',
+        'type': '2'
+    },
+    '5|1': {
+        'color': 'red',
+        'type': '2'
+    },
+    '6|1': {
+        'color': 'red',
+        'type': '2'
+    },
+    '0|2': {
+        'color': 'red',
+        'type': '3'
+    },
+    '1|2': {
+        'color': 'red',
+        'type': '3'
+    },
+    '2|2': {
+        'color': 'red',
+        'type': '3'
+    },
+    '3|2': {
+        'color': 'red',
+        'type': '3'
+    },
+    '4|2': {
+        'color': 'red',
+        'type': '3'
+    },
+    '5|2': {
+        'color': 'red',
+        'type': '4'
+    },
+    '6|2': {
+        'color': 'red',
+        'type': '4'
+    },
+
+    '0|3': {
+        'color': 'red',
+        'type': '4'
+    },
+    '1|3': {
+        'color': 'red',
+        'type': '4'
+    },
+    '2|3': {
+        'color': 'red',
+        'type': '5'
+    },
+    '3|3': {
+        'color': 'red',
+        'type': '5'
+    },
+    '4|3': {
+        'color': 'red',
+        'type': '5'
+    },
+    '5|3': {
+        'color': 'red',
+        'type': '5'
+    },
+    '6|3': {
+        'color': 'red',
+        'type': '6'
+    },
+    '0|4': {
+        'color': 'red',
+        'type': '6'
+    },
+    '1|4': {
+        'color': 'red',
+        'type': '6'
+    },
+    '2|4': {
+        'color': 'red',
+        'type': '6'
+    },
+    '3|4': {
+        'color': 'red',
+        'type': '7'
+    },
+    '4|4': {
+        'color': 'red',
+        'type': '7'
+    },
+    '5|4': {
+        'color': 'red',
+        'type': '7'
+    },
+    '6|4': {
+        'color': 'red',
+        'type': '8'
+    },
+    '0|5': {
+        'color': 'red',
+        'type': '8'
+    },
+    '1|5': {
+        'color': 'red',
+        'type': '9'
+    },
+    '2|5': {
+        'color': 'red',
+        'type': '10'
+    },
+    '3|5': {
+        'color': 'red',
+        'type': 'S'
+    },
+    '4|5': {
+        'color': 'red',
+        'type': 'F'
+    },
+    '0|6': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '1|6': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '2|6': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '3|6': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '4|6': {
+        'color': 'blue',
+        'type': 'B'
+    },    
+    '0|7': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '1|7': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '2|7': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '3|7': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '4|7': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '5|7': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '6|7': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '0|8': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '1|8': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '2|8': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '3|8': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '4|8': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '5|8': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '6|8': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '0|9': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '1|9': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '2|9': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '3|9': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '4|9': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '5|9': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '6|9': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '0|10': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '1|10': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '2|10': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '3|10': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '4|10': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '5|10': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '6|10': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '0|11': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '1|11': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '2|11': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '3|11': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '4|11': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '5|11': {
+        'color': 'blue',
+        'type': 'B'
+    },
+    '6|11': {
+        'color': 'blue',
+        'type': 'B'
+    }
 };
 var boardTokens = {};
 
@@ -153,12 +466,16 @@ function draw() {
         box.stroke();
     }
 
-    function drawTokens(box, tokens) {
+    function drawTokens(ctx, tokens) {
         Object.entries(tokens).forEach(([index, token]) => {
-            box.save();
-            box.fillStyle = token.color;
-            box.fillText(token.type, index.split('|')[0] * 60 + 30, index.split('|')[1] * 60 + 30);
-            box.restore();
+            var x,
+            y;
+            [x, y] = index.split('|');
+            ctx.save();
+            ctx.fillStyle = token.color;
+            ctx.font = "30px Arial Sans Serif";
+            ctx.fillText(token.type, x * 60 + 20, y * 60 + 40);
+            ctx.restore();
         });
     }
     drawTokens(box, boxTokens);
