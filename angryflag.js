@@ -66,131 +66,131 @@ var boxTokens = {
     },
     '6|0': {
         'color': 'red',
-        'type': '2'
+        'type': 2
     },
     '0|1': {
         'color': 'red',
-        'type': '2'
+        'type': 2
     },
     '1|1': {
         'color': 'red',
-        'type': '2'
+        'type': 2
     },
     '2|1': {
         'color': 'red',
-        'type': '2'
+        'type': 2
     },
     '3|1': {
         'color': 'red',
-        'type': '2'
+        'type':2
     },
     '4|1': {
         'color': 'red',
-        'type': '2'
+        'type':2
     },
     '5|1': {
         'color': 'red',
-        'type': '2'
+        'type': 2
     },
     '6|1': {
         'color': 'red',
-        'type': '2'
-    },
+        'type': 2
+		},
     '0|2': {
         'color': 'red',
-        'type': '3'
+        'type': 3
     },
     '1|2': {
         'color': 'red',
-        'type': '3'
+        'type': 3
     },
     '2|2': {
         'color': 'red',
-        'type': '3'
+        'type': 3
     },
     '3|2': {
         'color': 'red',
-        'type': '3'
+        'type': 3
     },
     '4|2': {
         'color': 'red',
-        'type': '3'
+        'type': 3
     },
     '5|2': {
         'color': 'red',
-        'type': '4'
+        'type': 4
     },
     '6|2': {
         'color': 'red',
-        'type': '4'
+        'type': 4
     },
     '0|3': {
         'color': 'red',
-        'type': '4'
+        'type': 4
     },
     '1|3': {
         'color': 'red',
-        'type': '4'
+        'type': 4
     },
     '2|3': {
         'color': 'red',
-        'type': '5'
+        'type': 5
     },
     '3|3': {
         'color': 'red',
-        'type': '5'
+        'type': 5
     },
     '4|3': {
         'color': 'red',
-        'type': '5'
+        'type': 5
     },
     '5|3': {
         'color': 'red',
-        'type': '5'
+        'type': 5
     },
     '6|3': {
         'color': 'red',
-        'type': '6'
+        'type': 6
     },
     '0|4': {
         'color': 'red',
-        'type': '6'
+        'type': 6
     },
     '1|4': {
         'color': 'red',
-        'type': '6'
+        'type': 6
     },
     '2|4': {
         'color': 'red',
-        'type': '6'
+        'type': 6
     },
     '3|4': {
         'color': 'red',
-        'type': '7'
+        'type': 7
     },
     '4|4': {
         'color': 'red',
-        'type': '7'
+        'type': 7
     },
     '5|4': {
         'color': 'red',
-        'type': '7'
+        'type': 7
     },
     '6|4': {
         'color': 'red',
-        'type': '8'
+        'type': 8
     },
     '0|5': {
         'color': 'red',
-        'type': '8'
+        'type': 8
     },
     '1|5': {
         'color': 'red',
-        'type': '9'
+        'type': 9
     },
     '2|5': {
         'color': 'red',
-        'type': '10'
+        'type': 10
     },
     '3|5': {
         'color': 'red',
@@ -202,15 +202,15 @@ var boxTokens = {
     },
     '0|6': {
         'color': 'blue',
-        'type': '8'
+        'type': 8
     },
     '1|6': {
         'color': 'blue',
-        'type': '9'
+        'type': 9
     },
     '2|6': {
         'color': 'blue',
-        'type': '10'
+        'type': 10
     },
     '3|6': {
         'color': 'blue',
@@ -222,115 +222,115 @@ var boxTokens = {
     },
     '0|7': {
         'color': 'blue',
-        'type': '6'
+        'type': 6
     },
     '1|7': {
         'color': 'blue',
-        'type': '6'
+        'type': 6
     },
     '2|7': {
         'color': 'blue',
-        'type': '6'
+        'type': 6
     },
     '3|7': {
         'color': 'blue',
-        'type': '7'
+        'type': 7
     },
     '4|7': {
         'color': 'blue',
-        'type': '7'
+        'type': 7
     },
     '5|7': {
         'color': 'blue',
-        'type': '7'
+        'type': 7
     },
     '6|7': {
         'color': 'blue',
-        'type': '8'
+        'type': 8
     },
     '0|8': {
         'color': 'blue',
-        'type': '4'
+        'type': 4
     },
     '1|8': {
         'color': 'blue',
-        'type': '4'
+        'type': 4
     },
     '2|8': {
         'color': 'blue',
-        'type': '5'
+        'type': 5
     },
     '3|8': {
         'color': 'blue',
-        'type': '5'
+        'type': 5
     },
     '4|8': {
         'color': 'blue',
-        'type': '5'
+        'type': 5
     },
     '5|8': {
         'color': 'blue',
-        'type': '5'
+        'type': 5
     },
     '6|8': {
         'color': 'blue',
-        'type': '6'
+        'type': 6
     },
     '0|9': {
         'color': 'blue',
-        'type': '3'
+        'type': 3
     },
     '1|9': {
         'color': 'blue',
-        'type': '3'
+        'type': 3
     },
     '2|9': {
         'color': 'blue',
-        'type': '3'
+        'type': 3
     },
     '3|9': {
         'color': 'blue',
-        'type': '3'
+        'type': 3
     },
     '4|9': {
         'color': 'blue',
-        'type': '3'
+        'type': 3
     },
     '5|9': {
         'color': 'blue',
-        'type': '4'
+        'type': 4
     },
     '6|9': {
         'color': 'blue',
-        'type': '4'
+        'type': 4
     },
     '0|10': {
         'color': 'blue',
-        'type': '2'
+        'type': 2
     },
     '1|10': {
         'color': 'blue',
-        'type': '2'
+        'type': 2
     },
     '2|10': {
         'color': 'blue',
-        'type': '2'
+        'type': 2
     },
     '3|10': {
         'color': 'blue',
-        'type': '2'
+        'type': 2
     },
     '4|10': {
         'color': 'blue',
-        'type': '2'
+        'type': 2
     },
     '5|10': {
         'color': 'blue',
-        'type': '2'
+        'type': 2
     },
     '6|10': {
         'color': 'blue',
-        'type': '2'
+        'type': 2
     },
     '0|11': {
         'color': 'blue',
@@ -408,10 +408,18 @@ function moveFromBoxToBoard(source, destination) {
     }
 }
 
+function isEmpty(destination) {
+    var destinationIndex = destination.x + '|' + destination.y;
+    var destinationIsEmpty = !boardTokens[destinationIndex];
+    return destinationIsEmpty;
+}
+
+//used during setup
+//swaps the pieces if there is a piece at the destination
 function moveFromBoardToBoard(source, destination) {
 
     var destinationIndex = destination.x + '|' + destination.y;
-    var destinationIsEmpty = !boardTokens[destinationIndex];
+    var destinationIsEmpty = isEmpty(destination);
     var sourceIndex = sourceSquare.x + '|' + sourceSquare.y;
     if (destinationIsEmpty) {
         //move to new spot on board
@@ -449,13 +457,17 @@ function boardClick(event) {
     };
     var index = destination.x + '|' + destination.y;
 
-    //check of moving from box
+    //check of moving from box to board during setup
     if (sourceSquare.region == 'box' && gameStatus == 'SETUP') {
         moveFromBoxToBoard(sourceSquare, destination);
     }
-    //if moving from board to board
+    //if moving from board to board during setup
     else if (sourceSquare.region == 'board' && gameStatus == 'SETUP') {
         moveFromBoardToBoard(sourceSquare, destination);
+    }
+    //if moving from board to board during play
+    else if (sourceSquare.region == 'board' && gameStatus == 'RUNNING') {
+        move(sourceSquare, destination);
     }
     // this is first click
     else if (boardTokens[index]) {
@@ -463,6 +475,49 @@ function boardClick(event) {
     }
 
     draw();
+}
+
+//used during game play
+function move(source, destination) {
+    //is target a valid destination
+    var moves = getMoves(source);
+    var validMove = false;
+    for (var i = 0; i < moves.length; i++) {
+        if (moves[i].x == destination.x && moves[i].y == destination.y) {
+            //valid
+            validMove = true;
+            break;
+        }
+    }
+    if (!validMove) {
+        return;
+    }
+
+    //is a valid move
+    //do the move
+    var destinationIsEmpty = isEmpty(destination);
+    var destinationIndex = getIndex(destination);
+    var destinationToken = boardTokens[destinationIndex];
+	var sourceIndex=getIndex(source);
+    var sourceToken = boardTokens[sourceIndex];
+	
+	
+	console.log(!isNaN(destinationToken.type));
+	console.log(!isNaN(sourceToken.type));
+	console.log(destinationToken.type );
+	console.log( sourceToken.type);
+	console.log(destinationToken.type > sourceToken.type);
+	
+	
+    if (destinationIsEmpty) {
+        moveFromBoardToBoard(source, destination);
+    } else if (!isNaN(destinationToken.type) &&
+        !isNaN(sourceToken.type) &&
+        destinationToken.type > sourceToken.type) {
+        //lower number attacking a higher number
+        delete boardTokens[sourceIndex];
+		console.log('lower attacking higher');
+    }
 }
 
 function getIndex(square) {
