@@ -10,6 +10,8 @@ var sourceSquare = {
 var colors = ['red', 'blue'];
 var currentColor = 'red';
 var nextColor = '';
+var gameStatus = 'SETUP';
+var LINEWIDTH = 6;
 
 function boxClick(event) {
     //check to see if there is a token at this spot
@@ -27,6 +29,12 @@ function boxClick(event) {
 
         draw();
     }
+}
+
+function doneSetup(color) {
+    return Object.keys(boxTokens).some((key) => {
+        boxTokens[key].color == currentColor
+    })
 }
 
 function boardClick(event) {
@@ -47,6 +55,7 @@ function boardClick(event) {
         //check of moving from box to board during setup
         if (sourceSquare.region == 'box') {
             moveFromBoxToBoard(sourceSquare, destination);
+            
         }
         //if moving from board to board during setup
         else if (sourceSquare.region == 'board') {
@@ -109,6 +118,12 @@ function startEndTurn(event) {
     }
     //unselect
     clearSelection();
+
+    //check if anyone has pieces to place still
+    if (Object.keys(boxTokens).length == 0) {
+        //TODO:if noone does, then toggle the start game button
+    }
+
     draw();
 }
 
@@ -136,16 +151,10 @@ function moveFromBoardToBoard(source, destination) {
 
     var destinationIndex = destination.x + '|' + destination.y;
     var destinationIsEmpty = isEmpty(destination);
-    console.log(source);
     var sourceIndex = source.x + '|' + source.y;
     if (destinationIsEmpty) {
         //move to new spot on board
         //make a copy
-        console.log(boardTokens);
-        console.log(sourceIndex);
-        console.log(boardTokens[sourceIndex]);
-        console.log(JSON.stringify(boardTokens[sourceIndex]));
-        console.log(JSON.stringify(JSON.stringify(boardTokens[sourceIndex])));
 
         boardTokens[destinationIndex] = JSON.parse(JSON.stringify(boardTokens[sourceIndex]));
 
@@ -153,7 +162,6 @@ function moveFromBoardToBoard(source, destination) {
         delete boardTokens[sourceIndex];
         //clear the global variable
         clearSelection();
-        console.log(boardTokens);
     } else {
         //swap pieces
         var destinationToken = boardTokens[destinationIndex];
@@ -167,6 +175,18 @@ function moveFromBoardToBoard(source, destination) {
 //used during game play
 //enforces valid moves
 function move(source, destination) {
+    var destinationIsEmpty = isEmpty(destination);
+    var destinationIndex = getIndex(destination);
+    var destinationToken = boardTokens[destinationIndex];
+    var sourceIndex = getIndex(source);
+    var sourceToken = boardTokens[sourceIndex];
+
+    //selecting a different piece
+    if (destinationIndex == sourceIndex && destinationToken.color == currentColor) {
+        clearSelection();
+        return;
+    }
+
     //is target a valid destination
     var moves = getMoves(source);
     var validMove = false;
@@ -184,11 +204,7 @@ function move(source, destination) {
 
     //is a valid move
     //do the move
-    var destinationIsEmpty = isEmpty(destination);
-    var destinationIndex = getIndex(destination);
-    var destinationToken = boardTokens[destinationIndex];
-    var sourceIndex = getIndex(source);
-    var sourceToken = boardTokens[sourceIndex];
+
 
     if (destinationIsEmpty) {
         moveFromBoardToBoard(source, destination);
@@ -232,8 +248,6 @@ function init() {
     $(startEndTurnButton).click(startEndTurn);
 }
 
-var gameStatus = 'SETUP';
-
 function startGame() {
     gameStatus = 'RUNNING';
     var startGameButton = document.getElementById('startGameButton');
@@ -242,10 +256,8 @@ function startGame() {
     currentColor = "";
     draw();
 }
-var LINEWIDTH = 6;
-function draw() {
-    //console.log('draw');
 
+function draw() {
     var boardCanvas = document.getElementById('board');
     var board = boardCanvas.getContext('2d');
     board.clearRect(0, 0, boardCanvas.width, boardCanvas.height);
@@ -285,6 +297,7 @@ function draw() {
         box.stroke();
     }
 
+
     var currentColorSpan = document.getElementById("currentColor");
     currentColorSpan.textContent = currentColor ? "Waiting for " + currentColor + " to end their turn" : "Waiting on " + nextColor + " to start their turn";
     var startEndTurnButton = document.getElementById('startEndTurnButton');
@@ -292,6 +305,10 @@ function draw() {
 
     var phaseSpan = document.getElementById('phaseSpan');
     phaseSpan.textContent = gameStatus;
+	
+	//TODO:toggle the endturn button
+	
+	
 
     //internal function in draw()
     function drawTokens(ctx, tokens) {
@@ -301,7 +318,6 @@ function draw() {
             [x, y] = index.split('|');
             ctx.save();
             //if this is the current color's token, draw the type
-            //console.log(token);
             if (token.color == currentColor) {
                 ctx.fillStyle = token.color;
                 ctx.font = "30px Arial Sans Serif";
@@ -325,7 +341,6 @@ function draw() {
     //anonymous self executing function for drawing
     //highlight valid moves for selected token
     (function drawMoves(moves) {
-        //console.log(moves);
         board.save();
 
         board.strokeStyle = "blue";
@@ -333,7 +348,6 @@ function draw() {
         board.beginPath();
 
         moves.forEach(square => {
-            //console.log(square);
             board.rect(square.x * SIZE + LINEWIDTH / 2,
                 square.y * SIZE + LINEWIDTH / 2,
                 SIZE - LINEWIDTH, SIZE - LINEWIDTH);
@@ -345,7 +359,6 @@ function draw() {
     })(getMoves(sourceSquare));
 
     (function drawSelection() {
-        //console.log(sourceSquare);
         var ctx;
         if (sourceSquare.region == 'board') {
             var ctx = board;
@@ -373,13 +386,9 @@ function getMoves(sourceSquare) {
     if (sourceSquare.region != 'board') {
         return [];
     }
-    //console.log(sourceSquare);
     index = getIndex(sourceSquare);
-    //console.log(index);
     var token = boardTokens[index];
-    //console.log(token);
     var type = TOKENTYPES[token.type];
-    //console.log(type);
     //get up movememnts
     for (var i = 1; i <= type.movement && sourceSquare.y - i >= 0 &&
         //check if board is empty
