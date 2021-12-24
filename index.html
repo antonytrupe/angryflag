@@ -4,7 +4,7 @@
 	<script src="jquery-3.6.0.min.js"></script>
 	<script src="angryflag.js"></script>
 	<script>
-		$(document).ready(function(){init();draw();});
+		$(document).ready(function(){var af=new AngryFlagUI(document.getElementById('gameDiv'))});
 	</script>
     <style type="text/css">
 		canvas { border: 1px solid black; }
@@ -16,15 +16,15 @@
   <a href="https://antonytrupe.github.io/angryflag/">site</a>
   </div>
   
+  <div id="gameDiv">
   <div>
-  <div>
-  <button id="startGameButton" disabled>Start Game</button>
-  <button id="startEndTurnButton" disabled>End/Start Turn</button>
-  <p>Phase:<span id="phaseSpan">Setup</span></p>
-  <p>Turn:<span id="currentColor"></span></p>
+  <button class="startGameButton" disabled>Start Game</button>
+  <button class="startEndTurnButton" disabled>End/Start Turn</button>
+  <p>Phase:<span class="phaseSpan">Setup</span></p>
+  <p>Turn:<span class="currentColor"></span></p>
   </div>
-  <canvas id="board" width="600" height="600"></canvas>
-  <canvas id="box" width="420" height="720"></canvas>
+  <canvas class="board" width="600" height="600"></canvas>
+  <canvas class="box" width="420" height="720"></canvas>
   </div>
   
   </body>
