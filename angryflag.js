@@ -208,21 +208,30 @@ class AngryFlag {
       !isNaN(sourceToken.type)) {
       if (destinationToken.type > sourceToken.type) {
         //lower number attacking a higher number
+        var killedToken=this.boardTokens[sourceIndex];
+        this.moveToBox(this.boardTokens[sourceIndex]);
         delete this.boardTokens[sourceIndex];
       }
       if (destinationToken.type == sourceToken.type) {
         //tie
         delete this.boardTokens[sourceIndex];
+        //TODO handle putting the piece back in the box
         delete this.boardTokens[destinationIndex];
+        //TODO handle putting the piece back in the box
       }
       if (destinationToken.type < sourceToken.type) {
         //higher number attacking a lower number
         delete this.boardTokens[destinationIndex];
+        //TODO handle putting the piece back in the box
       }
     }
     //advance the game
     this.startEndTurn();
     return true;
+  }
+
+  moveToBox(){
+    //TODO find a spot in the box for this token
   }
 
   getIndex(square) {
@@ -681,6 +690,7 @@ class AngryFlag {
       'type': '2'
     }
   };
+  boxStartingTokens=JSON.parse(JSON.stringify(boxTokens));
 }
 
 class AngryFlagUI {
@@ -758,7 +768,6 @@ class AngryFlagUI {
   }
 
   boxClick(event) {
-    //check to see if there is a token at this spot
     var destination = {
       'region': 'board',
       'x': Math.floor(event.offsetX / this.scale),
@@ -784,11 +793,6 @@ class AngryFlagUI {
       'y': Math.floor(event.offsetY / this.scale)
     };
     var index = destination.x + '|' + destination.y;
-    //console.log(index);
-    //and its the current player's token
-    //if (boardTokens[index].color !== currentColor) {
-    // return;
-    //}
 
     switch (this.angryFlag.gameStatus) {
       case 'SETUP':
@@ -806,13 +810,20 @@ class AngryFlagUI {
         }
         break;
       case 'RUNNING':
+        //TODO what if they clicked another token that's theirs?
+        //if they clicked the same token again, ie deselect
+
+        if (this.sourceSquare.x==destination.x && this.sourceSquare.y==destination.y)
+        {
+          this.clearSelection();
+        }
         //if moving from board to board during play
-        if (this.sourceSquare.region == 'board') {
+        else if (this.sourceSquare.region == 'board') {
           var moved=this.angryFlag.move(this.sourceSquare, destination);
-          console.log(moved);
+          //console.log(moved);
           if(moved)
           {
-            console.log('clearing selection');
+            //console.log('clearing selection');
             this.clearSelection();
           }
         }
@@ -872,6 +883,7 @@ class AngryFlagUI {
     });
   }
 
+//TODO handle revealing the attacked token
   draw() {
 
     this.board.clearRect(0, 0, this.boardCanvas.width, this.boardCanvas.height);
